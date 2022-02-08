@@ -21,5 +21,12 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('welcome_message');
+		// echo "ini halaman awal"
+	}
+
+	public function home()
+	{
+		$this->load->view('home');
+		// echo "ini halaman awal"
 	}
 }
