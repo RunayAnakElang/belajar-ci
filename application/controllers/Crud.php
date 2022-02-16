@@ -9,6 +9,7 @@ class Crud extends CI_Controller {
 	}
     public function insert_data()
 	{
+        $this->load->model('Crud_m');
 		// print_r($this->input->post());
 		// echo "ini halaman awal"
         $data = [
@@ -17,11 +18,30 @@ class Crud extends CI_Controller {
             'alamat'=> $this->input->post('alamat'),
             'tanggal_lahir'=> $this->input->post('tgl_lahir'),
             'no_telepon'=> $this->input->post('no_tlep'),
-            'password'=> $this->input->post('email')
+            'password'=> $this->input->post('password')
          
         ];
-        $this->db->insert('siswa', $data);
+        
+        // $this->db->insert('siswa', $data);
+        $model_crud = $this->Crud_m->insert_data($data);
+        
+        if ($model_crud == true){
+            echo "data berhasil di simpan";
+
+        }
+        else{
+            echo"data gagal disimpan";
+        }
+
 	}
+
+   public function ambil_data(){
+       $this->load->model('Crud_m');
+       $data = $this->Crud_m->ambil_data();
+       print_r($data);
+       die;
+       $this->load->view('homie', $data);
+   }
 
     
 }
