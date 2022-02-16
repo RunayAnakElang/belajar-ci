@@ -37,9 +37,12 @@ class Crud extends CI_Controller {
 
    public function ambil_data(){
        $this->load->model('Crud_m');
-       $data = $this->Crud_m->ambil_data();
-       print_r($data);
-       die;
+       $data =[
+           'data' => $this->Crud_m->ambil_data()
+        ];
+       
+    //    print_r($data);
+    //    die;
        $this->load->view('homie', $data);
    }
 
