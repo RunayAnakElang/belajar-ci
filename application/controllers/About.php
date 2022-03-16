@@ -7,5 +7,8 @@ class About extends CI_Controller {
 		$this->load->view('abt');
 		// echo "ini halaman awal"
 	}
+   
+
+	
 }
 ?>

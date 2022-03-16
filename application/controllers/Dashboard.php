@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller {
     public function index()
 	{
-		$this->load->view('homie');
+		$this->load->model("Crud_m");
+		$data =["data"=> $this->Crud_m->ambil_data()];
+		$this->load->view('homie', $data);
 		// echo "ini halaman awal"
 	}
     public function about()

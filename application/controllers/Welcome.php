@@ -28,5 +28,52 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('home');
 		// echo "ini halaman awal"
+
 	}
+	public function login()
+	{
+		$this->session->set_userdata([
+			'login' => true,
+	         'level' => 'user' 
+			]);
+		// echo "ini halaman awal"
+	}
+	public function test_session()
+	{
+		if($this->session->userdata('login') != true){
+			echo "login duluu";
+	
+		} else {
+			
+			echo $this->session->userdata('login');
+		}
+		
+	}
+	public function admin()
+	{
+		if($this->session->userdata('login') != true){
+			echo "login duluu";
+	
+		} else {
+			if($this->session->userdata('level')==='admin'){
+				echo $this->session->userdata('login');
+				echo $this->session->userdata('level');
+			} else {
+				echo "anda bukan admin";
+			}
+			
+			
+		}
+		
+	}
+
+	public function logout()
+	{
+		echo $this->session->sess_destroy();
+		// echo "ini halaman awal"
+	}
+	
+
+	
+	
 }

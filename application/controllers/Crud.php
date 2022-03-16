@@ -46,6 +46,13 @@ class Crud extends CI_Controller {
        $this->load->view('homie', $data);
    }
 
+
+    public function api(){
+
+       $this->load->view('v_api');
+   }
+
+
     
 }
 ?>
