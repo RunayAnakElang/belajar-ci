@@ -20,5 +20,12 @@ class Crud_M extends CI_Model {
         $this->db->from('siswa');
         return $this->db->get()->result_array();
     }
+   
+    public public ubah ()
+    {
+        echo json_encode(['status' => 'gagal']);
+    }
 }
 ?>
+                    
+                        

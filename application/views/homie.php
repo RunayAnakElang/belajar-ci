@@ -59,6 +59,8 @@
       <th scope="col">Alamat</th>
       <th scope="col">tanggal lahir</th>
       <th scope="col">No telepon</th>
+      <th scope="col">Aksi</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -72,6 +74,9 @@
       <td ><?= $row['alamat']; ?></td>
       <td ><?= $row['tanggal_lahir']; ?></td>
       <td ><?= $row['no_telepon']; ?></td>
+      <td>
+        <button data-id="<?= $row['id_siswa'] ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" id="btnModal" >ubah</button>
+    </td>
       
       
     </tr>
@@ -86,6 +91,59 @@
   </div>
 
 </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script>
+$(document).ready(function() {
+$(function(){
+
+  $('#btnModal').click(function() {
+      var data = $('#data-tex').val();
+      let btn = $(e.relatedTarget);
+      let id = btn.data('id');
+  })
+
+  $('save').click(function() {
+    var id = $(this).data(id);
+    var data = $('#data-text').val();
+    console.log(data);
+    $.ajax({
+      url:"<?= base_url('Crud/ubah/') ?>",
+      type: "post",
+      datatype:"JSON",
+      data: {
+        'id' : id,
+        'value' : data
+      },
+      success: function(response){
+        console.log(response.status);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(textStatus, errorThrown);
+      }
+    });
+  })
+})
+})
+    </script>
 <!-- akhir tabel -->
 
 </body>

@@ -23,7 +23,7 @@
         <a class="nav-link" href="<?php echo base_url('Dashboard');?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('Dashboard/about');?>">about</a>
+        <a class="nav-link" href="<?php echo base_url('Dashboard/about');?>">about </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('Dashboard/contact');?>">contact</a>
